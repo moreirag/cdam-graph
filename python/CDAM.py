@@ -90,13 +90,12 @@ def plot_chord_tracks(circos: Circos, data: pd.DataFrame, min_value: float, max_
 # --- Execução principal ---
 def main():
     
-    #filename = "Iris-Virginica.csv"
-    #filename = "Iris-Versicolor.csv"
-    #filename = "Iris-Setosa.csv"
-    filename = "plano_4D.csv"
-    #filename = "wfg4_dwu-dec.csv"
-    #filename = "wfg4_nsgaii-dec.csv"
 
+    #filename = "/data/Iris-virginica.csv"
+    #filename = "/data/Iris-Versicolor.csv"
+    #filename = "/data/Iris-Setosa.csv"
+    filename = "/data/5D_plane.csv"
+    
     
     data = pd.read_csv(filename, header=None)
     points = data.values
@@ -113,8 +112,10 @@ def main():
     plot_chord_tracks(circos, data, min_value, max_value)
 
     fig = circos.plotfig()
-    logging.info("Gráfico gerado com sucesso.")
-    plt.show()
+    logging.info("Done!.")
+    plt.savefig('/results/figure.png')
+
+    #plt.show()
 
 if __name__ == "__main__":
     main()
